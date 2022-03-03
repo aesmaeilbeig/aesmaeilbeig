@@ -1,0 +1,461 @@
+
+
+# ----------------- Init Section -----------------
+
+include "system.in.init"
+
+
+# ----------------- Atom Definition Section -----------------
+
+newton off
+
+#read_data "datx.30000" extra/special/per/atom 10000 extra/bond/per/atom 2000
+#read_restart res.dat
+read_data dat-bnd.12000
+
+# ----------------- Settings Section -----------------
+
+include "system.in.settings"
+# ----------------- Charges Section -----------------
+
+# ----------------- Run Section -----------------
+
+# The lines above define the system you want to simulate.
+# What you do next is up to you.
+# Typically a user would minimize and equilibrate
+# the system using commands similar to the following:
+#  ----   examples   ----
+#
+#  -- minimize --
+# minimize 1.0e-5 1.0e-7 1000 10000
+# (Note: Some fixes, for example "shake", interfere with the minimize command,
+#        You can use the "unfix" command to disable them before minimization.)
+#  -- declare time step for normal MD --
+# timestep 1.0
+#  -- run at constant pressure (Nose-Hoover)--
+# fix   fxnpt all npt temp 300.0 300.0 100.0 iso 1.0 1.0 1000.0 drag 1.0
+#  -- ALTERNATELY, run at constant volume (Nose-Hoover) --
+ fix   fxnvt all nvt temp 300.0 300.0 100.0 #tchain 1
+#  -- ALTERNATELY, run at constant volume using Langevin dynamics. --
+#  -- (This is good for sparse CG polymers in implicit solvent.)   --
+# fix fxLAN all langevin 300.0 300.0 5000 48279
+# fix fxNVE all nve  #(<--needed by fix langevin)
+#  -- Now, finally run the simulation --
+# run   50000
+#  ---- (end of examples) ----
+
+thermo 100
+
+
+#run 30000
+#write_restart res.dat
+#write_data datx.*
+thermo 1
+thermo_style custom step temp vol bonds
+
+#fix 1 all bond/create 1 85 60 2.5 100 
+dump 1 all xyz 10 out.xyz
+
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+run 500
+write_data dat-run.*
+*
+
+
+
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
+run 500
+write_data dat-bnd.*
